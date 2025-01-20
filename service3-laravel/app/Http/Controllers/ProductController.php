@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CreateProductJob;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -44,8 +45,10 @@ class ProductController extends Controller
             'price' => 'required|numeric'
         ]);
 
-        // Simpan data
-        Product::create($request->all());
+        $data = $request->only(['category_id','name','price','description']);
+
+        // Dispatch queue (Redis)
+        CreateProductJob::dispatch($data);
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
