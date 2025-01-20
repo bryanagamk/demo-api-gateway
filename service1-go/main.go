@@ -1,15 +1,23 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"service1-go/config"
+	"service1-go/controllers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello World from Service 1 (Golang)")
-	})
+	// Connect to the database
+	config.ConnectDatabase()
 
-	fmt.Println("Service 1 (Golang) running on port 9001")
-	http.ListenAndServe(":9001", nil)
+	r := gin.Default()
+
+	// Routes
+	r.GET("/", controllers.Index)
+	r.POST("/products", controllers.CreateProduct)
+	r.PUT("/products/:id", controllers.UpdateProduct)
+
+	// Run server
+	r.Run(":9001")
 }
