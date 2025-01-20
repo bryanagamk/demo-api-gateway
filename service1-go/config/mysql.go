@@ -24,7 +24,7 @@ func ConnectDatabase() {
 	password := os.Getenv("DB_PASSWORD")
 	host := os.Getenv("DB_HOST")
 	port := os.Getenv("DB_PORT")
-	dbname := os.Getenv("DB_NAME")
+	dbname := os.Getenv("DB_DATABASE")
 
 	// Build DSN (Data Source Name)
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
