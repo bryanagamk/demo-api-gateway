@@ -73,6 +73,8 @@ For example, http://localhost:8080/service3/categories will be forwarded to http
 **Caching:** Store frequently requested responses to reduce backend service load.
 **Service Integration:** Communication from one service to another
 **Multiple Database Abstraction:** Able to make abstraction database technoogy
+**Multiple Database Abstraction:** Able to make abstraction database technoogy
+**Implement Asynq:** distributed task queue in Go
 \
 \
 \
