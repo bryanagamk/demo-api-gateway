@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
+var MySql *gorm.DB
 
 func ConnectDatabase() {
 	// Load environment variables from .env file
@@ -37,6 +37,6 @@ func ConnectDatabase() {
 		log.Fatal("Failed to connect to database: ", err)
 	}
 
-	DB = db
+	MySql = db
 	log.Println("Database connected successfully!")
 }

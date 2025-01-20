@@ -20,7 +20,7 @@ func CreateProduct(c *gin.Context) {
 		return
 	}
 
-	if err := config.DB.Create(&product).Error; err != nil {
+	if err := config.MySql.Create(&product).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -32,7 +32,7 @@ func UpdateProduct(c *gin.Context) {
 	var product models.Product
 	id := c.Param("id")
 
-	if err := config.DB.First(&product, id).Error; err != nil {
+	if err := config.MySql.First(&product, id).Error; err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Product not found"})
 		return
 	}
@@ -42,6 +42,6 @@ func UpdateProduct(c *gin.Context) {
 		return
 	}
 
-	config.DB.Save(&product)
+	config.MySql.Save(&product)
 	c.JSON(http.StatusOK, product)
 }
