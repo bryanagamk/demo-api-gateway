@@ -61,7 +61,7 @@ For example, http://localhost:8080/service3/categories will be forwarded to http
 **[20-01-2025]**
 - Create API gateway
 - Simple CRUD Laravel Product & Category Service3
-- Create/Update data to DB using Job
+- Create/Update data to DB (MySQL) using Job
 - Simple API Golang Service1
 - Job and Worker Manager using Gouroutine
 
@@ -72,6 +72,7 @@ For example, http://localhost:8080/service3/categories will be forwarded to http
 **Load Balancing:** Distribute requests to multiple service instances to improve performance and availability.
 **Caching:** Store frequently requested responses to reduce backend service load.
 **Service Integration:** Communication from one service to another
+**Multiple Database Abstraction:** Able to make abstraction database technoogy
 \
 \
 \
